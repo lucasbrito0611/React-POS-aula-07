@@ -23,16 +23,23 @@ const Tarefa = ({ id, titulo, concluido }: TarefaProps) => {
         e.stopPropagation();
         router.push(`/tarefas/${id}`)
     };
-
+    const excluirClick = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        router.push(`/tarefas/${id}/apagar`)
+    };
+    
     return (
         <div className={classeCard} onClick={() => escutarClique()}>
             <h3 className={`text-xl font-bold ${classeCorDoTexto}`}>{titulo}</h3>
             <p className={`text-sm ${classeCorDoTexto}`}>
                 {estaConcluido ? "Concluída" : "Pendente"}
             </p>
-            <div className="mt-3">
+            <div className="flex gap-2 mt-3">
                 <button className="bg-blue-600 text-white px-2 py-1 rounded-sm cursor-pointer" onClick={editClick}>
                     Editar
+                </button>
+                <button className="bg-red-600 text-white px-2 py-1 rounded-sm cursor-pointer" onClick={excluirClick}>
+                    Excluir
                 </button>
             </div>
         </div>
