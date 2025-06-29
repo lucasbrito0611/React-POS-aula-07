@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 export interface TarefaProps {
     id: number,
     titulo: string;
@@ -17,4 +19,11 @@ export interface TarefasProps {
 
 export interface ModalTarefaProps {
     addTarefa: (titulo: string) => void;
+}
+
+export interface TaskFormProps {
+  title: string;
+  children?: ReactNode;
+  onSubmit: (e: React.FormEvent) => void;
+  buttonText: string;
 }

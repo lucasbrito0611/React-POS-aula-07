@@ -3,12 +3,10 @@
 import type React from "react";
 import axios from 'axios'
 
-
 import { useEffect, useState } from "react";
 import { Todo } from "@/types/tarefa";
 import Cabecalho from "@/components/Cabecalho";
 import Tarefas from "@/components/Tarefas";
-import ModalTarefa from "@/components/ModalTarefa";
 
 const Home = () => {
     const [tarefas, setTarefas] = useState<Todo[]>([]);
