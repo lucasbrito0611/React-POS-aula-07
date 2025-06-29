@@ -1,4 +1,5 @@
 export interface TarefaProps {
+    id: number,
     titulo: string;
     concluido?: boolean;
 }
@@ -16,5 +17,4 @@ export interface TarefasProps {
 
 export interface ModalTarefaProps {
     addTarefa: (titulo: string) => void;
-    onClose: () => void;
 }

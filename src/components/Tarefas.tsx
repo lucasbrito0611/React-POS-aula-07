@@ -7,6 +7,7 @@ const Tarefas = ({ dados }: TarefasProps) => {
             {dados.map((tarefa) => (
                 <Tarefa
                     key={tarefa.id}
+                    id={tarefa.id}
                     titulo={tarefa.todo}
                     concluido={tarefa.completed}
                 />

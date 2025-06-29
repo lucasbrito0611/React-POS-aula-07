@@ -12,22 +12,8 @@ import ModalTarefa from "@/components/ModalTarefa";
 
 const Home = () => {
     const [tarefas, setTarefas] = useState<Todo[]>([]);
-    const [isModalOpen, setIsModalOpen] = useState(false);
     const [loading, setLoading] = useState<boolean>(true)
     const [error, setError] = useState<string | null>(null)
-
-
-    const adicionarTarefa = (titulo: string) => {
-        if (titulo.trim() === '') {
-            alert("Título da tarefa não pode ser vazio.");
-            return;
-        }
-        setTarefas([
-            { id: tarefas.length + 1, todo: titulo, completed: false, userId: tarefas.length + 1 },
-            ...tarefas
-        ]);
-        setIsModalOpen(false);
-    };
 
     useEffect(() => {
         const fetchTodos = async () => {
@@ -64,12 +50,6 @@ const Home = () => {
     return (
         <div className="flex flex-col gap-8 container mx-auto p-4">
             <Cabecalho />
-            <div>
-                <button className="bg-gray-800 text-white text-2xl font-medium py-4 px-6 rounded-[5px] cursor-pointer" onClick={() => setIsModalOpen(true)}>
-                    Nova tarefa
-                </button>
-            </div>
-            {isModalOpen && <ModalTarefa addTarefa={adicionarTarefa} onClose={() => setIsModalOpen(false)} />}
             <Tarefas dados={tarefas} />
         </div>
     );
